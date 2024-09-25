@@ -8,11 +8,18 @@ public class Main {
         while (true) {
             String name = inputBookName();
             int pageCount = inputPageCount();
+            int price = inputPrice();
             addBook(name);
             addBook(name, pageCount);
             //todo использовать новый метод тут
+            addBook(name, pageCount, price);
             printInfo();
         }
+    }
+
+    private static int inputPrice() {
+        System.out.println("Введите цену книги в рублях:");
+        return new Scanner(System.in).nextInt();
     }
 
     public static String inputBookName() {
@@ -31,6 +38,12 @@ public class Main {
 
     public static void addBook(String bookName, int pageCount) {
         booksInfo = booksInfo + bookName + " - " + (pageCount > 0 ? pageCount : "N/A") + " стр.\n";
+    }
+
+    public static void addBook(String bookName, int pageCount, int bookPrice) {
+        booksInfo = booksInfo + bookName + " - " +
+                (pageCount > 0 ? pageCount : "N/A") + " стр. " + "Цена книги - "
+                + (bookPrice > 0 ? bookPrice : "не установлено") + " рублей.\n";
     }
 
     public static void printInfo() {
