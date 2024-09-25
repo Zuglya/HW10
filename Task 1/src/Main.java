@@ -37,7 +37,7 @@ public class Main {
     }
 
     public static void addBook(String bookName, int pageCount) {
-        booksInfo = booksInfo + bookName + " - " + (pageCount > 0 ? pageCount : "N/A") + " стр.\n";
+        addBook(bookName, pageCount, 0);
     }
 
     public static void addBook(String bookName, int pageCount, int bookPrice) {
